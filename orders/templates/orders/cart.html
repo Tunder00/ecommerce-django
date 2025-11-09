@@ -1,0 +1,35 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+<div class="cart-container">
+  <h2>Your Shopping Cart</h2>
+
+  {% if products %}
+    <table class="cart-table">
+      <thead>
+        <tr>
+          <th>Product</th>
+          <th>Price</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for product in products %}
+          <tr>
+            <td>{{ product.name }}</td>
+            <td>₹{{ product.price }}</td>
+          </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+
+    <div class="cart-total">
+      <h3>Total: ₹{{ total }}</h3>
+      <a href="{% url 'checkout' %}" class="btn-checkout">Proceed to Checkout</a>
+    </div>
+  {% else %}
+    <p>Your cart is empty 🛒</p>
+    <a href="/" class="btn-continue">Continue Shopping</a>
+  {% endif %}
+</div>
+{% endblock %}

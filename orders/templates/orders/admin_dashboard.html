@@ -1,0 +1,44 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="admin-dashboard">
+  <h2>🧑‍💼 Admin Dashboard</h2>
+
+  <div class="stats-box">
+    <p><strong>Total Orders:</strong> {{ total_orders }}</p>
+    <p><strong>Total Revenue:</strong> ₹{{ total_revenue }}</p>
+    <p><strong>Pending Orders:</strong> {{ pending }}</p>
+  </div>
+
+  <div class="admin-links">
+    <a href="{% url 'manage_orders' %}" class="btn-manage">📦 Manage Orders</a>
+    <a href="{% url 'export_orders_csv' %}" class="btn-export">⬇️ Export Orders CSV</a>
+  </div>
+</div>
+
+<style>
+.admin-dashboard {
+  padding: 20px;
+  text-align: center;
+}
+.stats-box {
+  display: inline-block;
+  text-align: left;
+  margin-bottom: 30px;
+}
+.admin-links {
+  margin-top: 20px;
+}
+.btn-manage, .btn-export {
+  display: inline-block;
+  background: #007bff;
+  color: white;
+  padding: 10px 15px;
+  border-radius: 6px;
+  margin: 5px;
+  text-decoration: none;
+}
+.btn-manage:hover, .btn-export:hover {
+  background: #0056b3;
+}
+</style>
+{% endblock %}

@@ -1,0 +1,356 @@
+/* ===========================
+   General Layout & Reset
+=========================== */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Segoe UI", Arial, sans-serif;
+}
+
+body {
+  background-color: #f9fafc;
+  color: #222;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+/* ===========================
+   Navbar
+=========================== */
+.navbar {
+  background-color: #1e293b;
+  color: #fff;
+  padding: 15px 0;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+}
+
+.nav-container {
+  width: 90%;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.brand {
+  color: #38bdf8;
+  font-size: 24px;
+  font-weight: bold;
+  text-decoration: none;
+}
+
+.nav-links a {
+  color: #fff;
+  margin-left: 20px;
+  text-decoration: none;
+  font-weight: 500;
+  transition: color 0.2s;
+}
+
+.nav-links a:hover {
+  color: #38bdf8;
+}
+
+/* ===========================
+   Content Wrapper
+=========================== */
+.content {
+  flex: 1;
+  width: 90%;
+  max-width: 1000px;
+  margin: 30px auto;
+}
+
+/* ===========================
+   Product Grid & Cards
+=========================== */
+.product-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+  gap: 15px;
+  justify-items: center;
+  margin-top: 20px;
+}
+
+/* --- Product Card --- */
+.product-card {
+  background: #fff;
+  padding: 10px;
+  border-radius: 6px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+  transition: transform 0.2s, box-shadow 0.2s;
+  width: 160px;
+  text-align: center;
+}
+
+.product-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.15);
+}
+
+.product-card img {
+  width: 100%;
+  height: auto;
+  border-radius: 4px;
+}
+
+.product-card h4 {
+  margin: 8px 0 4px;
+  font-size: 16px;
+}
+
+.product-card p {
+  color: #333;
+  font-size: 14px;
+  margin-bottom: 8px;
+}
+
+/* --- Button (shared across site) --- */
+a.btn,
+button,
+.checkout-btn,
+.btn-checkout,
+.btn-continue {
+  display: inline-block;
+  padding: 8px 14px;
+  background: #38bdf8;
+  color: #fff;
+  border-radius: 5px;
+  text-decoration: none;
+  font-size: 14px;
+  transition: background 0.3s;
+  border: none;
+  cursor: pointer;
+}
+
+a.btn:hover,
+button:hover,
+.checkout-btn:hover,
+.btn-checkout:hover,
+.btn-continue:hover {
+  background: #0284c7;
+}
+
+/* ===========================
+   Product Details Page
+=========================== */
+.product-detail-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 40px 20px;
+}
+
+.product-detail-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background: #fff;
+  border-radius: 10px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+  max-width: 350px;
+  padding: 20px;
+  text-align: center;
+}
+
+.product-detail-card img {
+  width: 100%;
+  border-radius: 8px;
+  margin-bottom: 15px;
+}
+
+.product-detail-card h2 {
+  font-size: 20px;
+  margin-bottom: 10px;
+}
+
+.product-detail-card .price {
+  color: #0284c7;
+  font-size: 18px;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+.product-detail-card .description {
+  font-size: 14px;
+  color: #555;
+  margin-bottom: 15px;
+}
+
+/* ===========================
+   Forms (Login/Register)
+=========================== */
+form {
+  background: #fff;
+  padding: 25px;
+  border-radius: 8px;
+  box-shadow: 0 1px 5px rgba(0, 0, 0, 0.1);
+  width: 400px;
+  max-width: 100%;
+  margin: 20px auto;
+}
+
+form input,
+form select,
+form textarea {
+  width: 100%;
+  padding: 8px 10px;
+  margin-top: 6px;
+  margin-bottom: 15px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+form button {
+  background: #1e293b;
+  color: #fff;
+  padding: 10px 15px;
+  border-radius: 4px;
+  transition: 0.3s;
+}
+
+form button:hover {
+  background: #334155;
+}
+
+/* ===========================
+   Cart & Checkout
+=========================== */
+.cart-container {
+  padding: 20px;
+  max-width: 800px;
+  margin: auto;
+}
+
+.cart-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-bottom: 20px;
+}
+
+.cart-table th,
+.cart-table td {
+  border: 1px solid #ddd;
+  padding: 10px;
+  text-align: left;
+}
+
+.cart-table th {
+  background-color: #1e293b;
+  color: white;
+}
+
+.cart-total {
+  text-align: right;
+  font-weight: bold;
+  font-size: 18px;
+  margin-top: 10px;
+}
+
+/* ===========================
+   Admin Dashboard
+=========================== */
+.dashboard {
+  background: #fff;
+  padding: 25px;
+  border-radius: 8px;
+  box-shadow: 0 1px 6px rgba(0, 0, 0, 0.1);
+}
+
+.dashboard h2 {
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+.kpi-cards {
+  display: flex;
+  gap: 20px;
+  flex-wrap: wrap;
+  margin-bottom: 30px;
+  justify-content: center;
+}
+
+.kpi-card {
+  flex: 1 1 200px;
+  background: #f1f5f9;
+  padding: 15px;
+  border-radius: 6px;
+  text-align: center;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+}
+
+.kpi-card h3 {
+  color: #1e293b;
+  margin-bottom: 5px;
+}
+
+.kpi-card p {
+  font-size: 20px;
+  font-weight: bold;
+  color: #38bdf8;
+}
+
+/* Manage Orders Table */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 20px;
+}
+
+th,
+td {
+  border: 1px solid #ccc;
+  padding: 10px;
+  text-align: center;
+}
+
+th {
+  background: #1e293b;
+  color: white;
+}
+
+tr:nth-child(even) {
+  background: #f9fafc;
+}
+
+/* ===========================
+   Footer
+=========================== */
+footer {
+  text-align: center;
+  background: #1e293b;
+  color: #fff;
+  padding: 12px;
+  margin-top: 30px;
+  font-size: 14px;
+}
+
+/* ===========================
+   Responsive Design
+=========================== */
+@media (max-width: 768px) {
+  .product-grid {
+    grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+  }
+
+  .nav-container {
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  form {
+    width: 90%;
+  }
+
+  .product-detail-card {
+    max-width: 90%;
+    padding: 15px;
+  }
+
+  .kpi-cards {
+    flex-direction: column;
+    align-items: center;
+  }
+}

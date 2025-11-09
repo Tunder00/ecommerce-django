@@ -1,0 +1,41 @@
+# ==============================
+# Python / Django General
+# ==============================
+__pycache__/
+*.py[cod]
+*.log
+*.pot
+*.pyc
+*.sqlite3
+*.pyo
+*.pyd
+*.db
+
+# ==============================
+# Django Specific
+# ==============================
+db.sqlite3
+media/
+staticfiles/
+.env
+.env.local
+.DS_Store
+
+# ==============================
+# Virtual Environments
+# ==============================
+env/
+venv/
+.venv/
+
+# ==============================
+# IDE / Editor
+# ==============================
+.vscode/
+.idea/
+*.swp
+
+# ==============================
+# System / Misc
+# ==============================
+Thumbs.db

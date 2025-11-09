@@ -1,0 +1,94 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="admin-container">
+  <h2>📦 Manage Orders</h2>
+  <a href="{% url 'admin_dashboard' %}" class="btn-back">⬅ Back to Dashboard</a>
+
+  {% if orders %}
+    <table class="orders-table">
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>User</th>
+          <th>Total</th>
+          <th>Status</th>
+          <th>Created</th>
+          <th>Action</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for order in orders %}
+        <tr>
+          <td>{{ order.id }}</td>
+          <td>{{ order.user.username }}</td>
+          <td>₹{{ order.total }}</td>
+          <td>{{ order.status }}</td>
+          <td>{{ order.created_at|date:"Y-m-d H:i" }}</td>
+          <td>
+            <form method="post" style="display:flex; gap:5px;">
+              {% csrf_token %}
+              <input type="hidden" name="order_id" value="{{ order.id }}">
+              <select name="status" required>
+                <option value="Pending" {% if order.status == 'Pending' %}selected{% endif %}>Pending</option>
+                <option value="Shipped" {% if order.status == 'Shipped' %}selected{% endif %}>Shipped</option>
+                <option value="Delivered" {% if order.status == 'Delivered' %}selected{% endif %}>Delivered</option>
+                <option value="Cancelled" {% if order.status == 'Cancelled' %}selected{% endif %}>Cancelled</option>
+              </select>
+              <button type="submit">Update</button>
+            </form>
+          </td>
+        </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  {% else %}
+    <p>No orders found.</p>
+  {% endif %}
+</div>
+
+<style>
+.admin-container {
+  padding: 20px;
+  max-width: 900px;
+  margin: auto;
+}
+.orders-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+.orders-table th, .orders-table td {
+  border: 1px solid #ddd;
+  padding: 10px;
+  text-align: center;
+}
+.orders-table th {
+  background: #f2f2f2;
+}
+button {
+  background: #007bff;
+  color: white;
+  border: none;
+  padding: 6px 12px;
+  cursor: pointer;
+  border-radius: 4px;
+}
+button:hover {
+  background: #0056b3;
+}
+.btn-back {
+  display: inline-block;
+  margin-bottom: 15px;
+  background: #28a745;
+  color: white;
+  padding: 8px 15px;
+  border-radius: 5px;
+  text-decoration: none;
+}
+.btn-back:hover {
+  background: #218838;
+}
+select {
+  padding: 5px;
+}
+</style>
+{% endblock %}
